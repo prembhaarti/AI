@@ -1,4 +1,5 @@
 from sklearn.model_selection import train_test_split
+from sklearn.model_selection import cross_val_score
 
 class CommonModel:
 
@@ -25,6 +26,10 @@ class CommonModel:
 
     def getScore(self):
         return self.classifier.score(self.X_test, self.y_test)
+
+    def getCrossValScore(self,kfolds=5):
+        scores = cross_val_score(self.classifier, self.dataset.data, self.dataset.target, cv=kfolds)
+        return scores.mean()
 
     def visualize(self):
         pass
