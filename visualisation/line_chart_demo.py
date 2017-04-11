@@ -23,5 +23,7 @@ plt.xlabel("HOURS")
 plt.ylabel("Sale of Televisions")
 plt.title("Television Sales graph")
 
+plt.axis([0,20,0,60])
+plt.grid(True)
 # finaly show the graph
 plt.show()

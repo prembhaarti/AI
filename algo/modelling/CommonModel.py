@@ -9,6 +9,17 @@ class CommonModel:
     def __init__(self, classifier, dataset):
         self.classifier = classifier
         self.dataset = dataset
+        self.features = dataset.data
+        self.labels= dataset.target
+        self.X_train = None
+        self.X_test = None
+        self.y_train = None
+        self.y_test = None
+
+    def __init__(self, classifier, features, labels):
+        self.classifier = classifier
+        self.features = features
+        self.labels = labels
         self.X_train = None
         self.X_test = None
         self.y_train = None
@@ -28,7 +39,7 @@ class CommonModel:
         return self.classifier.score(self.X_test, self.y_test)
 
     def getCrossValScore(self,kfolds=5):
-        scores = cross_val_score(self.classifier, self.dataset.data, self.dataset.target, cv=kfolds)
+        scores = cross_val_score(self.classifier, self.features, self.labels, cv=kfolds)
         return scores.mean()
 
     def visualize(self):

@@ -14,5 +14,6 @@ y_values = matrix[:, 1]
 
 # scatter adds markers on graph
 plt.scatter(x_values, y_values, color="black", marker="*", s=100)
-
+plt.grid(True)
+# plt.axis()
 plt.show()
